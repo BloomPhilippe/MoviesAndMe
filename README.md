@@ -297,3 +297,5 @@ react-native link nomPackage
 ## Si votre refraichissement auto ne se fait pas
 
 Dans l'emulator taper 2x sur r
+
+Ou ctrl+m et activer le live reload
