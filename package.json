@@ -1,26 +1,31 @@
 {
-  "main": "node_modules/expo/AppEntry.js",
+  "name": "MoviesAndMe",
+  "version": "0.0.1",
+  "private": true,
   "scripts": {
-    "start": "expo start",
-    "android": "expo start --android",
-    "ios": "expo start --ios",
-    "eject": "expo eject"
+    "start": "node node_modules/react-native/local-cli/cli.js start",
+    "test": "jest"
   },
   "dependencies": {
-    "@babel/runtime": "7.0.0",
-    "expo": "^32.0.0",
-    "react": "^16.5.0",
-    "react-dom": "^16.8.2",
-    "react-native": "https://github.com/expo/react-native/archive/sdk-32.0.0.tar.gz",
+    "moment": "^2.24.0",
+    "numeral": "^2.0.6",
+    "react": "16.6.3",
+    "react-native": "0.57.3",
     "react-native-elements": "^1.0.0",
-    "react-native-gesture-handler": "^1.0.15",
+    "react-native-gesture-handler": "^1.0.16",
+    "react-native-vector-icons": "^6.3.0",
     "react-navigation": "^3.3.0",
     "react-redux": "^5.0.7",
     "redux": "^4.0.1"
   },
   "devDependencies": {
-    "babel-preset-expo": "^5.0.0",
-    "schedule": "^0.4.0"
+    "babel-core": "7.0.0-bridge.0",
+    "babel-jest": "24.1.0",
+    "jest": "24.1.0",
+    "metro-react-native-babel-preset": "0.52.0",
+    "react-test-renderer": "16.6.3"
   },
-  "private": true
+  "jest": {
+    "preset": "react-native"
+  }
 }
