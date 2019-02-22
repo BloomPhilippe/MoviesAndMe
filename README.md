@@ -285,3 +285,11 @@ Could not compile settings file 'C:\wamp64\www\git\ReactNative\TestNative\androi
 ````
 
 Changer les backslash par des slash
+
+
+## Ajouter un package natif
+
+````
+npm i --save nomPackage
+react-native link nomPackage
+````
