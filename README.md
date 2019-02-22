@@ -200,6 +200,8 @@ react-native run-ios
 
 Problème dû au résidu laisser par Expo
 
+Ce qui a été très long !!
+
 1. Créer un nouveau projet en dehors de celui-ci
 
     ````
