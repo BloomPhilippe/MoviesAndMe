@@ -1,7 +1,7 @@
 
 import React from 'react'
 import { StyleSheet, Image, TouchableOpacity } from 'react-native'
-
+import ImagePicker from 'react-native-image-picker'
 
 class Avatar extends React.Component {
 
@@ -10,10 +10,26 @@ class Avatar extends React.Component {
         this.state = {
             avatar: require('../assets/ic_tag_faces.png')
         }
+
+        this._avatarClicked = this._avatarClicked.bind(this)
     }
 
     _avatarClicked() {
-        // Ici nous appellerons la librairie react-native-image-picker pour récupérer un avatar
+        ImagePicker.showImagePicker({}, (response) => {
+            if (response.didCancel) {
+                console.log('L\'utilisateur a annulé')
+            }
+            else if (response.error) {
+                console.log('Erreur : ', response.error)
+            }
+            else {
+                console.log('Photo : ', response.uri )
+                let requireSource = { uri: response.uri }
+                this.setState({
+                    avatar: requireSource
+                })
+            }
+        })
     }
 
     render() {
