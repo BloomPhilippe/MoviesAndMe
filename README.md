@@ -308,9 +308,9 @@ Ou ctrl+m et activer le live reload
     Cliquer sur Toggle Inspector
     
     Maintenant, quand vous cliquez sur un élément de votre application, react-devtools affiche les détails...
-    
-  
-3. 
+
+
+3. Via Nuclide, vous pouvez utiliser des breakpoints afin de bloquer l'application
     
     
     
