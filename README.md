@@ -276,3 +276,17 @@ react-native link nomPackage
 Dans l'emulator taper 2x sur r
 
 Ou ctrl+m et activer le live reload
+
+## Debug
+
+1. Via le debug de Chrome (Il faut avoir Chrome)
+
+    Ouvrir le menu (ctrl+m) dans l'application.
+    
+    Cliquer sur Debug JS Remotely
+    
+    Une fenetre chrome apparait, aller dans l'inspecteur pour voir vos logs
+    
+    Dans certains cas il faut effectuer cette commande pour que cela fonctionne
+    
+    ``adb reverse tcp:8081 tcp:8081``
