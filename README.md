@@ -64,6 +64,9 @@ npm install
 
 :exclamation: Les version de react-redux supérieur à 5.* ne fonctionne pas avec React Native
 
+Si vous souhaiter que les données gérées par redux persiste, utiliser : ``npm install --save redux-persist``
+
+
 ## Rappel
 
 L'utilisation de trois points avant un objet, copie ses propriétés
