@@ -234,43 +234,7 @@ Ce qui a été très long !!
 [source](https://openclassrooms.com/fr/courses/4902061-developpez-une-application-mobile-react-native/4959616-formalisez-votre-application-pour-utiliser-les-composants-du-device)
 
 
-### Erreur 
-
-````
-Building and installing the app on the device (cd android && gradlew.bat installDebug)...
-
-FAILURE: Build failed with an exception.
-
-* Where:
-Settings file 'C:\wamp64\www\git\ReactNative\MoviesAndMe\android\settings.gradle' line: 3
-
-* What went wrong:
-Could not compile settings file 'C:\wamp64\www\git\ReactNative\MoviesAndMe\android\settings.gradle'.
-> startup failed:
-  settings file 'C:\wamp64\www\git\ReactNative\MoviesAndMe\android\settings.gradle': 3: unexpected char: '\' @ line 3, column 133.
-     s\react-native-gesture-handler\android')
-                                   ^
-
-  1 error
-````
-
-**Solution :**
-
-1. Ouvrir le shell en admin
-
-2. Vérifier si le device est présent
-
-    ````
-    adb devices
-    ````
-   
-3. Avce la commande précedente (id emulator)
-    
-    ````
-    react-native run-android --deviceId id
-    ````
-    
-4. Si ça ne fonctionne toujours pas et que vous avez l'erreur ci-dessous :
+## Erreur settings.gradle
 
 ````
 * Where:
@@ -286,7 +250,18 @@ Could not compile settings file 'C:\wamp64\www\git\ReactNative\TestNative\androi
   1 error
 ````
 
-Changer les backslash par des slash
+Changer les backslash par des slash dans les fichier de mon projet :
+
+- android/build.gradle
+- android/gradlew.bat
+- android/gradle.properties
+- android/settings.gradle
+
+## Erreur canOverrideExistingModule=true
+
+Vérifier dans android/app/src/main/java/com/moviesandme/MainApplication.java
+
+Il y a surement deux import pour un même package... Et un instanciation en double également.
 
 
 ## Ajouter un package natif
