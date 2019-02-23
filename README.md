@@ -290,3 +290,27 @@ Ou ctrl+m et activer le live reload
     Dans certains cas il faut effectuer cette commande pour que cela fonctionne
     
     ``adb reverse tcp:8081 tcp:8081``
+    
+    Il est possible d'utilse certaines variables en console comme $r
+    
+    Mais il faut cliquer sur top et choisir debuggerWorker.js
+    
+    
+    
+2. Via le devTools
+
+    ``npm install -g react-devtools``
+    
+    Utilisation : ``react-devtools``
+    
+    Ouvrir le menu (ctrl+m) dans l'application.
+    
+    Cliquer sur Toggle Inspector
+    
+    Maintenant, quand vous cliquez sur un élément de votre application, react-devtools affiche les détails...
+    
+  
+3. 
+    
+    
+    
