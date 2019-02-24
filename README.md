@@ -64,8 +64,80 @@ npm install
 
 :exclamation: Les version de react-redux supérieur à 5.* ne fonctionne pas avec React Native
 
-Si vous souhaiter que les données gérées par redux persiste, utiliser : ``npm install --save redux-persist``
+## Redux persist
 
+**Si vous souhaiter que les données gérées par redux persiste, utiliser :** 
+
+``npm install --save redux-persist``
+
+**Dans le configuration du store (là où vous utiliser combineReducers) :**
+
+- Importer persistCombineReducers de redux persist
+
+````
+import { persistCombineReducers } from 'redux-persist'
+````
+
+- Importer le type de moyen de sauvegarde
+
+import storage from 'redux-persist/lib/storage'
+
+- Créer constance avec la clé de persistance et le type de sauvegarde
+
+````
+const rootPersistConfig = {
+    key: 'root',
+    storage: storage
+}
+````
+
+- modifier la création du store
+
+Changer combineReducers par persistCombineReducers
+
+Cette méthode prend en permier paramètre votre clé et le deuxième paramètre est un objet avec les reducers.
+
+````
+export default createStore(persistCombineReducers(rootPersistConfig, {toggleFavorite, setAvatar}))
+````
+
+**Dans App.js :**
+
+- Importer persistStore de redux persist
+
+````
+import { persistStore } from 'redux-persist'
+````
+
+- Utiliser cette méthode pour sauver la persistance de votre store dans une variable
+
+````
+let persistor = persistStore(Store)
+````
+
+- Importer PersistGate de redux persist
+
+````
+import { PersistGate } from 'redux-persist/es/integration/react'
+````
+
+- Utiliser PersistGate pour encapsuler notre navigation en lui passant notre persistant
+
+````
+export default class App extends React.Component {
+    render() {
+        let persistor = persistStore(Store)
+        return (
+            <Provider store={Store}>
+                <PersistGate persistor={persistor}>
+                    <Navigation />
+                </PersistGate>
+            </Provider>
+        )
+    }
+}
+
+````
 
 ## Rappel
 
