@@ -385,7 +385,71 @@ Ou ctrl+m et activer le live reload
     Maintenant, quand vous cliquez sur un élément de votre application, react-devtools affiche les détails...
 
 
-3. Via Nuclide, vous pouvez utiliser des breakpoints afin de bloquer l'application
-    
-    
-    
+
+
+## Préparation de l'application pour le Store Google ou Ios
+
+**Android**
+
+- Créer une clé pour le store
+
+En remplacant my-key-alias et my-release-key par ce que vous voulez...
+
+La commande keytool fonctionne car j'ai ajouter Java jdk à mon path
+
+
+````
+ keytool -genkey -v -keystore my-release-key.keystore -alias my-key-alias -keyalg RSA -keysize 2048 -validity 10000
+````
+
+- Ajouter les informations de la clé dans android/gradle.properties
+
+````
+MYAPP_RELEASE_STORE_FILE=my-release-key.keystore
+MYAPP_RELEASE_KEY_ALIAS=my-key-alias
+MYAPP_RELEASE_STORE_PASSWORD=***
+MYAPP_RELEASE_KEY_PASSWORD=***
+````
+
+- Ajouter le code ci-dessous dans le fichier android/app/build.gradle
+
+````
+android {
+    ...
+    defaultConfig { ... }
+    signingConfigs {
+        release {
+            if (project.hasProperty('MYAPP_RELEASE_STORE_FILE')) {
+                storeFile file(MYAPP_RELEASE_STORE_FILE)
+                storePassword MYAPP_RELEASE_STORE_PASSWORD
+                keyAlias MYAPP_RELEASE_KEY_ALIAS
+                keyPassword MYAPP_RELEASE_KEY_PASSWORD
+            }
+        }
+    }
+    buildTypes {
+        release {
+            ...
+            signingConfig signingConfigs.release
+        }
+    }
+}
+````
+
+- Générer un bundle afin de ne plus utiliser node serveur
+
+````
+react-native bundle --platform android --dev false --entry-file index.js --bundle-output android/app/src/main/assets/index.android.bundle --assets-dest android/app/src/main/res/
+````
+
+- Nettoyer le dossier build
+
+````
+rm -rf android/app/src/main/res/drawable-xxxhdpi android/app/src/main/res/drawable-xxhdpi android/app/src/main/res/drawable-xhdpi android/app/src/main/res/drawable-mdpi android/app/src/main/res/drawable-hdpi
+````
+
+- Lancer la compilation
+
+````
+cd android && ./gradlew assembleRelease
+````
