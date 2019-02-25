@@ -453,3 +453,20 @@ rm -rf android/app/src/main/res/drawable-xxxhdpi android/app/src/main/res/drawab
 ````
 cd android && ./gradlew assembleRelease
 ````
+
+
+## Test votre APK
+
+- Desinstaller l'application sur l'emulateur
+
+Remplacer moviesandme pas le nom de votre app
+
+````
+adb uninstall "com.moviesandme"
+````
+
+- Installer l'application via l'APK
+
+````
+adb install .\app\build\outputs\apk\release\app-release.apk
+````
