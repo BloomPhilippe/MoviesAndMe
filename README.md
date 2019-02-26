@@ -1,17 +1,35 @@
 # MoviesAndMe
 
-Simple petit projet avec React Native
+## Introduction
 
-Utiliser [Expo](https://expo.io/learn) pour créer un app de base en React Native.
+Petit projet avec React Native dont certains packages tels que Redux (avec persist), React Navigation, React Native Elements,...
+
+Le but de base était d'appréhender ce nouveau framework JS mais je compte bien l'améliorer.
+
+Pour m'aider à la base, j'ai suivi la formation en ligne d'[Openclassrooms](https://openclassrooms.com/fr/courses/4902061-developpez-une-application-mobile-react-native).
+
+J'ai démarrer par un application simple (CRNA) qui n'utilise pas les composants natifs (caméra, géolocalisation, accéléromètre, galerie photo, accès aux contacts, ...).
+
+Grâce à l'outils [Expo](https://expo.io/learn), on peut créer une application React Native facilement et il met à notre disposition ne nombreuses fonctionnalités : 
+
+- Debuggage
+
+- Visualisation de l'appication emulateur
+
+- Visualisation de l'application directement sur votre smartphone ou votre tablette
+
+- Rafraîchissement automatique (watcher)
+
+- Et bien d'autre chose...
+
+
+## Mise en place
+
+Installer Expo en global :
 
 ````angular2
 npm install expo-cli --global
 ````
-
-Expo permet de visualiser votre app directement sur votre smartphone ou sur un émulateur... 
-Pour ce faire, vous devez installer Expo sur votre smartphone (via le store Google ou Apple). 
-
-A chaque changement, il rafraichis l'app.
 
 Démarrer l'app :
 
@@ -29,8 +47,12 @@ Après démarrage, scanner le QR code via l'application Expo sur le smartphone.
 
 Pour faire apparaitre le menu d'Expo sur le smartphone en cas d'erreur afin de forcer le rafraichissement ou autre, secouer le smartphone !
 
+## Un peu de théorie
+
 React est composé principalement de components !
+
 Un component est un élément graphique comme une view, un bouton, texte,...
+
 React est divisé en morceaux (component) réutilisables et indépendants.
 
 Liste de components de bases [ici](https://facebook.github.io/react-native/docs/components-and-apis.html#basic-components)
@@ -50,9 +72,13 @@ Il faut utiliser le deuxième paramètre de setState qui sera une fonction appel
 
 Lors d'installation de package, si vous obtenez des message **warning**, n'hésitez pas à faire une simple ``npm install``
 
+## Utilsation de Redux
+
 Pour gérer les states globalement (inter-component), on peut utiliser Redux.
+
 Il est semblable à Vuex dans VueJS...
-Il faut absolument utiliser de mutateur pour modifier le state dans reducer.
+
+Il faut absolument utiliser de mutateur pour modifier le state dans reducer car le state est immuable.
 
 Installer redux :
 
@@ -255,7 +281,7 @@ Sur une CRNA (Create-React-Native-App), on ne peut utiliser les composants du de
     Pour IOS, il faut absolument être sur un macOS
     
 
-## Démarrer l'App
+## Démarrer l'App en mode natif
 
 Attention cela peut être très la première car ça install tous les packages nécessaires...
 
